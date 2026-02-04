@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Leathercraft Workshop</title>
+    <meta name="description"
+        content="Get in touch with the Leathercraft Workshop team. Visit our studio, send us a message, or find us on the map.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-scroll"></i> LEATHERCRAFT</a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home 1</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <div class="mobile-auth-links">
+                    <a href="login.html" class="btn-nav-login">Login</a>
+                    <a href="signup.html" class="btn-nav-signup">Sign Up</a>
+                </div>
+            </nav>
+            <div class="auth-nav">
+                <a href="login.html" class="btn-nav-login">Login</a>
+                <a href="signup.html" class="btn-nav-signup">Sign Up</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px;">
+        <!-- Contact Intro Section -->
+        <section id="contact-intro">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span>Get in Touch</span>
+                    <h2>Contact & Support</h2>
+                </div>
+
+                <div class="about-section" style="margin-bottom: 5rem;">
+                    <div class="about-img reveal">
+                        <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=800"
+                            alt="Contact Support Scene">
+                    </div>
+                    <div class="about-text reveal">
+                        <h3>Ask Us Anything</h3>
+                        <p>Have a question about a tool, a specific leather hide, or an upcoming workshop? Our team of
+                            artisans is here to help you on your crafting journey.</p>
+
+                        <div class="card-grid" style="grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem;">
+                            <div class="contact-info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.2rem;">Email Us</h4>
+                                    <p>support@leathercraft.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.2rem;">Call Us</h4>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-container reveal">
+                    <div class="contact-info">
+                        <h3>Message Us</h3>
+                        <p>Send us a direct message and we'll get back to you within 24 hours.</p>
+
+                        <div class="card-grid" style="grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem;">
+                            <div class="card" style="padding: 1rem; background: var(--bg-light);">
+                                <h4>Support Hours</h4>
+                                <p style="font-size: 0.9rem;">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                                <p style="font-size: 0.9rem;">Sat: 10:00 AM - 4:00 PM</p>
+                            </div>
+                            <div class="card" style="padding: 1rem; background: var(--bg-light);">
+                                <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+                                <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" rows="5" placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" style="background-color: #f9f7f4;">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span>Visit Our Studio</span>
+                    <h2>Workshop Location</h2>
+                </div>
+
+                <div class="map-container reveal"
+                    style="margin-bottom: 4rem; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 450px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.5843653145455!2d-122.67884782352136!3d45.51862527107491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a0b73055555%3A0x1a84f3316279f531!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1698765432100!5m2!1sen!2sus"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><i class="fas fa-scroll"></i> LEATHERCRAFT</div>
+                    <p>Elevating the art of leathercrafting through premium tools and professional education since 2018.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for tool updates and tutorial releases.</p>
+                    <form style="margin-top: 1.5rem; display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Your email"
+                            style="padding: 0.8rem; border-radius: 5px; border: none; flex: 1;">
+                        <button type="button" class="btn btn-primary" style="padding: 0.8rem 1.5rem;">Join</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Leathercraft Workshop. All rights reserved.</p>
+            </div>
+        </div>
+        <a href="#" id="back-to-top" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
