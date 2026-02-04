@@ -8,37 +8,105 @@
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Specific overrides for a compact, minimal login page */
+        body {
+            background-color: var(--bg-light);
+            /* Ensure light background for contrast */
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            /* Reduced from default */
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            display: block;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            padding: 0.8rem 1rem;
+            /* Compact padding */
+            font-size: 0.95rem;
+            border-radius: 8px;
+            /* Softer radius */
+        }
+
+        .btn-primary {
+            padding: 0.9rem;
+            /* Compact button */
+            border-radius: 8px;
+            /* Match inputs */
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+            background: #fff;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            background: #f9f9f9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+    </style>
 </head>
 
 <body
     style="height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative;">
 
-    <!-- Theme Toggle (Absolute Positioned) -->
+    <!-- Theme Toggle -->
     <button id="theme-toggle" class="theme-toggle"
-        style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 1.5rem; color: var(--text-color); cursor: pointer; z-index: 1000;">
+        style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; font-size: 1.2rem; color: var(--text-color); cursor: pointer; z-index: 1000; opacity: 0.7; transition: opacity 0.3s;">
         <i class="fas fa-moon"></i>
     </button>
 
-    <main style="width: 100%; display: flex; justify-content: center; padding: 1rem;">
-        <div class="auth-wrapper" style="width: 100%; max-width: 450px;">
+    <main style="width: 100%; display: flex; justify-content: center; align-items: center; height: 100%;">
+        <div class="auth-wrapper" style="width: 100%; max-width: 400px; padding: 1rem;">
             <div class="auth-container"
-                style="background: var(--card-bg); padding: 2.5rem; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--glass-border); text-align: center;">
+                style="background: var(--card-bg); padding: 2.5rem 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03); text-align: center;">
 
-                <!-- Logo moved inside card -->
-                <div style="margin-bottom: 2rem;">
-                    <a href="index.html" class="logo" style="font-size: 2rem;"><i class="fas fa-scroll"></i>
-                        LEATHERCRAFT</a>
+                <!-- Logo -->
+                <div style="margin-bottom: 1.5rem;">
+                    <a href="index.html" class="logo"
+                        style="font-size: 1.5rem; display: inline-flex; align-items: center; justify-content: center; color: var(--accent);"><i
+                            class="fas fa-scroll" style="margin-right: 8px;"></i> LEATHERCRAFT</a>
                 </div>
 
-                <div class="auth-header">
-                    <h2>Welcome Back</h2>
-                    <p>Enter your credentials to access your account</p>
+                <!-- Header -->
+                <div class="auth-header" style="margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 0.3rem; color: var(--primary);">Welcome Back</h2>
+                    <p style="font-size: 0.9rem; color: #666; font-weight: 300;">Please enter your details to sign in.
+                    </p>
                 </div>
 
-                <form class="contact-form" style="text-align: left;">
+                <!-- Form -->
+                <form class="contact-form" style="text-align: left; gap: 0;">
+
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="john@example.com" required>
+                        <input type="email" id="email" placeholder="Enter your email..." required style="width: 100%;">
                     </div>
 
                     <div class="form-group">
@@ -46,43 +114,53 @@
                         <div class="password-input-wrapper" style="position: relative;">
                             <input type="password" id="password" placeholder="••••••••" required style="width: 100%;">
                             <i class="fas fa-eye toggle-password" id="togglePassword"
-                                style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #999;"></i>
+                                style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #bbb; font-size: 0.9rem;"></i>
                         </div>
                     </div>
 
                     <div class="auth-options"
-                        style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-bottom: 1.5rem;">
-                        <label>
-                            <input type="checkbox"> Remember me
+                        style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; margin-bottom: 1.5rem; margin-top: 0.2rem;">
+                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: #555;">
+                            <input type="checkbox" style="width: auto; margin: 0; accent-color: var(--accent);">
+                            Remember me
                         </label>
-                        <a href="#" class="forgot-password" style="color: var(--accent);">Forgot password?</a>
+                        <a href="#" class="forgot-password" style="color: var(--primary); font-weight: 500;">Forgot
+                            password?</a>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; box-shadow: 0 4px 12px rgba(212, 163, 115, 0.4);">Sign In</button>
                 </form>
 
-                <div class="social-login" style="margin-top: 2rem;">
+                <!-- Social Divider -->
+                <div class="social-login" style="margin-top: 2rem; margin-bottom: 1.5rem;">
                     <div class="social-divider"
-                        style="display: flex; align-items: center; margin-bottom: 1.5rem; color: #888; font-size: 0.9rem;">
-                        <span style="flex: 1; height: 1px; background: #ddd;"></span>
-                        <span style="padding: 0 10px;">Or login with</span>
-                        <span style="flex: 1; height: 1px; background: #ddd;"></span>
+                        style="display: flex; align-items: center; color: #999; font-size: 0.8rem; margin-bottom: 1.2rem;">
+                        <span style="flex: 1; height: 1px; background: #eee;"></span>
+                        <span
+                            style="padding: 0 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.7rem;">Or
+                            continue with</span>
+                        <span style="flex: 1; height: 1px; background: #eee;"></span>
                     </div>
-                    <div class="social-btns" style="display: flex; gap: 1rem;">
-                        <button class="social-btn google"
-                            style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s;">
-                            <i class="fab fa-google" style="color: #DB4437;"></i> Google
-                        </button>
-                        <button class="social-btn facebook"
-                            style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s;">
-                            <i class="fab fa-facebook-f" style="color: #4267B2;"></i> Facebook
-                        </button>
+
+                    <!-- Social Icons (Compact) -->
+                    <div class="social-container">
+                        <div class="social-btn" title="Google">
+                            <i class="fab fa-google" style="color: #DB4437;"></i>
+                        </div>
+                        <div class="social-btn" title="Apple">
+                            <i class="fab fa-apple" style="color: #000;"></i>
+                        </div>
+                        <div class="social-btn" title="Facebook">
+                            <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
+                        </div>
                     </div>
                 </div>
 
-                <div class="auth-footer" style="margin-top: 2rem; font-size: 0.9rem;">
-                    <p>Don't have an account? <a href="signup.html" style="color: var(--accent); font-weight: 600;">Sign
-                            up</a></p>
+                <!-- Footer -->
+                <div class="auth-footer" style="font-size: 0.85rem; color: #666;">
+                    <p>Don't have an account yet? <a href="signup.html"
+                            style="color: var(--primary); font-weight: 600;">Sign up</a></p>
                 </div>
             </div>
         </div>
