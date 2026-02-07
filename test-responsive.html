@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header Test | Leathercraft Workshop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            padding: 100px 20px 20px;
+            background: #f5f1eb;
+        }
+        .test-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breakpoint-indicator {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: #2C1810;
+            color: #D4A373;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div class="breakpoint-indicator" id="breakpoint">Width: <span id="width"></span>px</div>
+    
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-scroll"></i> LEATHERCRAFT</a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home 1</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <div class="mobile-auth-links">
+                        <a href="login.html" class="btn-nav-login">Login</a>
+                        <a href="signup.html" class="btn-nav-signup">Sign Up</a>
+                    </div>
+                </ul>
+            </nav>
+            <div class="auth-nav">
+                <a href="login.html" class="btn-nav-login">Login</a>
+                <a href="signup.html" class="btn-nav-signup">Sign Up</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="test-info">
+        <h1>Responsive Header Test</h1>
+        <p>This page tests the responsive behavior of the header:</p>
+        
+        <h2>✅ Changes Made:</h2>
+        <ul>
+            <li><strong>Desktop (>1024px):</strong> Shows logo + nav + Login/Sign Up buttons + theme toggle + hamburger (hidden)</li>
+            <li><strong>Tablet/Mobile (≤1024px):</strong> Shows logo + theme toggle + hamburger only</li>
+            <li><strong>Mobile Menu:</strong> Contains nav links + Login/Sign Up buttons</li>
+        </ul>
+
+        <h2>🔧 Technical Implementation:</h2>
+        <ul>
+            <li>Moved theme toggle button outside .auth-nav container</li>
+            <li>Added mobile positioning for theme toggle</li>
+            <li>Desktop auth buttons hidden at max-width: 1024px</li>
+            <li>Mobile auth links shown in hamburger menu at max-width: 1024px</li>
+        </ul>
+
+        <h2>📱 Test Instructions:</h2>
+        <ol>
+            <li>Resize browser window to test different breakpoints</li>
+            <li>Click hamburger menu to open mobile navigation</li>
+            <li>Verify Login/Sign Up buttons appear only in mobile menu</li>
+            <li>Verify theme toggle remains visible in all screen sizes</li>
+        </ol>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Show current viewport width
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+    </script>
+</body>
+</html>
