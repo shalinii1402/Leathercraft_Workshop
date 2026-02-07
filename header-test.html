@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Test - Responsive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            padding: 120px 20px 20px;
+            background: linear-gradient(135deg, #f5f1eb 0%, #e8dfd5 100%);
+            min-height: 100vh;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .status-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .breakpoint-display {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2C1810;
+            color: #D4A373;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            z-index: 10000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-visible { background: #4CAF50; }
+        .status-hidden { background: #f44336; }
+        .header-preview {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="breakpoint-display">
+        <div>Viewport: <span id="viewport-width"></span>px</div>
+        <div>Breakpoint: <span id="breakpoint"></span></div>
+    </div>
+
+    <div class="test-container">
+        <div class="header-preview">
+            <header id="header">
+                <div class="container nav-container">
+                    <a href="index.html" class="logo"><i class="fas fa-scroll"></i> LEATHERCRAFT</a>
+                    <nav>
+                        <ul class="nav-menu" id="nav-menu">
+                            <li><a href="index.html" class="nav-link active">Home</a></li>
+                            <li><a href="shop.html" class="nav-link">Shop</a></li>
+                            <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            <div class="mobile-auth-links">
+                                <a href="login.html" class="btn-nav-login">Login</a>
+                                <a href="signup.html" class="btn-nav-signup">Sign Up</a>
+                            </div>
+                        </ul>
+                    </nav>
+                    <div class="auth-nav" id="auth-nav">
+                        <a href="login.html" class="btn-nav-login">Login</a>
+                        <a href="signup.html" class="btn-nav-signup">Sign Up</a>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="hamburger" id="hamburger">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="status-card">
+            <h1>✅ Responsive Header Status</h1>
+            <p>Resize your browser to test different breakpoints. The Login/Sign Up buttons should be hidden in mobile and tablet views.</p>
+            
+            <h3>Current Visibility Status:</h3>
+            <ul class="checklist">
+                <li>
+                    <span class="status-indicator" id="logo-status"></span>
+                    <strong>Logo:</strong> <span id="logo-text">Checking...</span>
+                </li>
+                <li>
+                    <span class="status-indicator" id="auth-status"></span>
+                    <strong>Login/Sign Up Buttons:</strong> <span id="auth-text">Checking...</span>
+                </li>
+                <li>
+                    <span class="status-indicator" id="theme-status"></span>
+                    <strong>Theme Toggle:</strong> <span id="theme-text">Checking...</span>
+                </li>
+                <li>
+                    <span class="status-indicator" id="hamburger-status"></span>
+                    <strong>Hamburger Menu:</strong> <span id="hamburger-text">Checking...</span>
+                </li>
+            </ul>
+
+            <h3>Expected Behavior:</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                    <strong>Desktop (>1024px):</strong>
+                    <ul style="text-align: left; margin-top: 0.5rem;">
+                        <li>✅ Logo visible</li>
+                        <li>✅ Login/Sign Up visible</li>
+                        <li>✅ Theme toggle visible</li>
+                        <li>❌ Hamburger hidden</li>
+                    </ul>
+                </div>
+                <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
+                    <strong>Mobile/Tablet (≤1024px):</strong>
+                    <ul style="text-align: left; margin-top: 0.5rem;">
+                        <li>✅ Logo visible</li>
+                        <li>❌ Login/Sign Up hidden</li>
+                        <li>✅ Theme toggle visible</li>
+                        <li>✅ Hamburger visible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-card">
+            <h3>🔧 Implementation Details</h3>
+            <ul style="text-align: left;">
+                <li><strong>CSS Media Queries:</strong> Added <code>!important</code> declarations to ensure auth buttons are hidden</li>
+                <li><strong>Breakpoints:</strong> 1024px (tablet), 768px (mobile), 480px (small mobile)</li>
+                <li><strong>Mobile Menu:</strong> Login/Sign Up buttons appear inside hamburger menu</li>
+                <li><strong>Theme Toggle:</strong> Positioned independently to remain visible in all views</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function updateStatus() {
+            const width = window.innerWidth;
+            document.getElementById('viewport-width').textContent = width;
+            
+            let breakpoint = 'Desktop';
+            if (width <= 480) breakpoint = 'Small Mobile';
+            else if (width <= 768) breakpoint = 'Mobile';
+            else if (width <= 1024) breakpoint = 'Tablet';
+            
+            document.getElementById('breakpoint').textContent = breakpoint;
+            
+            // Check element visibility
+            const authNav = document.getElementById('auth-nav');
+            const hamburger = document.getElementById('hamburger');
+            const themeToggle = document.getElementById('theme-toggle');
+            const logo = document.querySelector('.logo');
+            
+            // Update status indicators
+            function updateStatus(id, element, expectedVisible) {
+                const isVisible = element && window.getComputedStyle(element).display !== 'none';
+                const statusEl = document.getElementById(id + '-status');
+                const textEl = document.getElementById(id + '-text');
+                
+                statusEl.className = 'status-indicator ' + (isVisible ? 'status-visible' : 'status-hidden');
+                textEl.textContent = isVisible ? 'VISIBLE' : 'HIDDEN';
+            }
+            
+            updateStatus('logo', logo, true);
+            updateStatus('auth', authNav, width > 1024);
+            updateStatus('theme', themeToggle, true);
+            updateStatus('hamburger', hamburger, width <= 1024);
+        }
+        
+        updateStatus();
+        window.addEventListener('resize', updateStatus);
+        
+        // Test hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

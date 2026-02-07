@@ -254,10 +254,11 @@ header.scrolled {
 
 .hero-btns {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
     animation: fadeInUp 1s ease 0.4s forwards;
     opacity: 0;
-    justify-content: center;
 }
 
 /* --- Buttons --- */
@@ -325,7 +326,7 @@ section {
 /* --- Cards --- */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
 }
 
@@ -857,12 +858,28 @@ footer {
     }
 
     .auth-nav {
-        display: none;
+        display: none !important;
     }
 
     .theme-toggle {
         display: flex;
         margin-right: 1rem;
+    }
+
+    .hero {
+        padding-top: 7rem !important;
+    }
+
+    .hero-btns {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero-btns .btn {
+        min-width: 200px;
+        flex: 1;
+        max-width: 250px;
     }
 
     .nav-menu .mobile-auth-links {
@@ -897,13 +914,78 @@ footer {
     .contact-container {
         grid-template-columns: 1fr;
     }
+
+    /* Responsive card grids for tablets */
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Responsive about image for tablets */
+    .about-img img {
+        max-height: 280px;
+        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .about-img {
+        max-width: 100%;
+        flex: 1;
+    }
+
+    /* Responsive Meet the Craftsmen section for tablets */
+    #our-team .about-section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    #our-team .about-section .about-img {
+        order: 2;
+        margin: 2rem 0;
+    }
+
+    #our-team .about-section .about-text {
+        order: 3;
+        text-align: center;
+    }
+
+    #our-team .section-header {
+        order: 1;
+        text-align: center;
+    }
 }
 
+/* Tablet specific styles */
 @media (max-width: 768px) {
+    .auth-nav {
+        display: none !important;
+    }
 
+    .hero {
+        min-height: 40vh;
+        padding: 8rem 0 4rem 0 !important;
+    }
 
     .hero-content h1 {
         font-size: 3.5rem;
+        margin-top: 1rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 280px;
     }
 
     .section-header h2 {
@@ -915,11 +997,6 @@ footer {
     }
 
     /* Mobile Image Resizing */
-    .hero {
-        min-height: 40vh;
-        padding: 4rem 0;
-    }
-
     .card-img {
         height: 180px;
     }
@@ -930,13 +1007,31 @@ footer {
 
     .about-img img {
         max-height: 250px;
+        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .about-img {
+        max-width: 100%;
+        flex: 1;
     }
 
     .tutorial-card .card-img {
         height: 180px;
     }
 
+    /* Responsive card grids */
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-width: 300px;
+    }
 
     /* Prevent horizontal scroll on mobile */
     body {
@@ -944,7 +1039,28 @@ footer {
     }
 
     .container {
-        padding: 0 1.5rem;
+        padding: 0 1rem;
+    }
+
+    /* Responsive Meet the Craftsmen section */
+    #our-team .about-section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    #our-team .about-section .about-img {
+        order: 2;
+        margin: 2rem 0;
+    }
+
+    #our-team .about-section .about-text {
+        order: 3;
+        text-align: center;
+    }
+
+    #our-team .section-header {
+        order: 1;
+        text-align: center;
     }
 }
 
@@ -952,6 +1068,51 @@ footer {
 @media (max-width: 480px) {
     .nav-menu {
         max-width: 280px;
+    }
+
+    .auth-nav {
+        display: none !important;
+    }
+
+    .hero {
+        padding: 7rem 0 3rem 0 !important;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Responsive card grids for small mobile */
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-content {
+        padding: 2rem;
+    }
+
+    .card-content h3 {
+        font-size: 1.6rem;
+    }
+
+    /* Responsive about image for small mobile */
+    .about-img img {
+        max-height: 200px;
+        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .about-img {
+        max-width: 100%;
+        flex: 1;
     }
 
     .nav-link {
@@ -970,6 +1131,27 @@ footer {
 
     .hamburger span {
         width: 22px;
+    }
+
+    /* Responsive Meet the Craftsmen section for small mobile */
+    #our-team .about-section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    #our-team .about-section .about-img {
+        order: 2;
+        margin: 2rem 0;
+    }
+
+    #our-team .about-section .about-text {
+        order: 3;
+        text-align: center;
+    }
+
+    #our-team .section-header {
+        order: 1;
+        text-align: center;
     }
 }
 
