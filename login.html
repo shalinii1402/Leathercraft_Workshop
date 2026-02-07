@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Leathercraft Workshop</title>
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=4">
-    <link rel="shortcut icon" href="assets/images/favicon.svg?v=4">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=5">
+    <link rel="shortcut icon" href="assets/images/favicon.svg?v=5">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -71,6 +71,21 @@
             justify-content: center;
             gap: 1.5rem;
         }
+
+        /* Dark mode specific fixes within the page */
+        .dark-theme .social-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-theme .social-divider span:not([style*="padding"]) {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .dark-theme .forgot-password,
+        .dark-theme .auth-footer a {
+            color: var(--accent) !important;
+        }
     </style>
 </head>
 
@@ -79,7 +94,7 @@
 
     <!-- Theme Toggle -->
     <button id="theme-toggle" class="theme-toggle"
-        style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; font-size: 1.2rem; color: var(--text-color); cursor: pointer; z-index: 1000; opacity: 0.7; transition: opacity 0.3s;">
+        style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--glass); border: 1px solid var(--glass-border); font-size: 1.2rem; color: var(--accent); cursor: pointer; z-index: 1000; transition: var(--transition); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
         <i class="fas fa-moon"></i>
     </button>
 
@@ -97,7 +112,7 @@
 
                 <!-- Header -->
                 <div class="auth-header" style="margin-bottom: 2rem;">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 0.3rem; color: var(--primary);">Welcome Back</h2>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 0.3rem; color: var(--accent);">Welcome Back</h2>
                     <p style="font-size: 0.9rem; color: #666; font-weight: 300;">Please enter your details to sign in.
                     </p>
                 </div>
@@ -146,15 +161,15 @@
 
                     <!-- Social Icons (Compact) -->
                     <div class="social-container">
-                        <div class="social-btn" title="Google">
+                        <a href="https://google.com" class="social-btn" title="Google">
                             <i class="fab fa-google" style="color: #DB4437;"></i>
-                        </div>
-                        <div class="social-btn" title="Apple">
+                        </a>
+                        <a href="https://apple.com" class="social-btn" title="Apple">
                             <i class="fab fa-apple" style="color: #000;"></i>
-                        </div>
-                        <div class="social-btn" title="Facebook">
+                        </a>
+                        <a href="https://facebook.com" class="social-btn" title="Facebook">
                             <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
-                        </div>
+                        </a>
                     </div>
                 </div>
 

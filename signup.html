@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | Leathercraft Workshop</title>
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=4">
-    <link rel="shortcut icon" href="assets/images/favicon.svg?v=4">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=5">
+    <link rel="shortcut icon" href="assets/images/favicon.svg?v=5">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -17,7 +17,7 @@
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             /* Compact vertical spacing */
         }
 
@@ -78,8 +78,8 @@
         .auth-options {
             text-align: left;
             font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 0.2rem;
             display: flex;
             align-items: center;
         }
@@ -97,33 +97,48 @@
             margin: 0;
             accent-color: var(--accent);
         }
+
+        /* Dark mode specific fixes within the page */
+        .dark-theme .social-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-theme .social-divider span:not([style*="padding"]) {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .dark-theme .auth-footer a {
+            color: var(--accent) !important;
+        }
     </style>
 </head>
 
-<body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;">
+<body
+    style="height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative;">
 
     <!-- Theme Toggle -->
     <button id="theme-toggle" class="theme-toggle"
-        style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; font-size: 1.2rem; color: var(--text-color); cursor: pointer; z-index: 1000; opacity: 0.7; transition: opacity 0.3s;">
+        style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--glass); border: 1px solid var(--glass-border); font-size: 1.2rem; color: var(--accent); cursor: pointer; z-index: 1000; transition: var(--transition); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
         <i class="fas fa-moon"></i>
     </button>
 
-    <main style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 2rem 1rem;">
+    <main style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 1rem;">
         <div class="auth-wrapper" style="width: 100%; max-width: 420px;">
             <div class="auth-container"
-                style="background: var(--card-bg); padding: 2.5rem 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03); text-align: center;">
+                style="background: var(--card-bg); padding: 1.5rem 2rem; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.03); text-align: center;">
 
                 <!-- Logo -->
-                <div style="margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 0.8rem;">
                     <a href="index.html" class="logo"
                         style="font-size: 1.5rem; display: inline-flex; align-items: center; justify-content: center; color: var(--accent);"><i
                             class="fas fa-scroll" style="margin-right: 8px;"></i> LEATHERCRAFT</a>
                 </div>
 
                 <!-- Header -->
-                <div class="auth-header" style="margin-bottom: 1.8rem;">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 0.3rem; color: var(--primary);">Get Started</h2>
-                    <p style="font-size: 0.9rem; color: #666; font-weight: 300;">Create your account now</p>
+                <div class="auth-header" style="margin-bottom: 1.2rem;">
+                    <h2 style="font-size: 1.7rem; margin-bottom: 0.2rem; color: var(--accent);">Get Started</h2>
+                    <p style="font-size: 0.85rem; color: #666; font-weight: 300;">Create your account now</p>
                 </div>
 
                 <!-- Form -->
@@ -160,24 +175,24 @@
                 </form>
 
                 <!-- Social Divider -->
-                <div class="social-login" style="margin-top: 1.8rem; margin-bottom: 1.5rem;">
+                <div class="social-login" style="margin-top: 1.2rem; margin-bottom: 1rem;">
                     <div class="social-divider"
-                        style="display: flex; align-items: center; color: #999; font-size: 0.8rem; margin-bottom: 1.2rem;">
+                        style="display: flex; align-items: center; color: #999; font-size: 0.8rem; margin-bottom: 1rem;">
                         <span style="flex: 1; height: 1px; background: #eee;"></span>
                         <span
-                            style="padding: 0 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.7rem;">Or
+                            style="padding: 0 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.65rem;">Or
                             continue with</span>
                         <span style="flex: 1; height: 1px; background: #eee;"></span>
                     </div>
 
                     <!-- Social Icons (Compact) -->
                     <div class="social-container">
-                        <div class="social-btn" title="Google">
+                        <a href="https://google.com" class="social-btn" title="Google">
                             <i class="fab fa-google" style="color: #DB4437;"></i>
-                        </div>
-                        <div class="social-btn" title="Facebook">
+                        </a>
+                        <a href="https://facebook.com" class="social-btn" title="Facebook">
                             <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
-                        </div>
+                        </a>
                     </div>
                 </div>
 

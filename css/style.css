@@ -26,11 +26,14 @@
 body.dark-theme {
     --bg-color: var(--bg-dark);
     --text-color: var(--text-light);
-    --header-bg: rgba(18, 12, 10, 0.95);
-    --card-bg: #1A120F;
+    --header-bg: rgba(18, 12, 10, 0.98);
+    --card-bg: #1e1614;
     --nav-link-color: var(--text-light);
-    --glass: rgba(0, 0, 0, 0.3);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass: rgba(0, 0, 0, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --bg-light: var(--bg-dark);
+    /* Override light sections in dark mode */
+    --accent-dim: rgba(212, 163, 115, 0.1);
 }
 
 * {
@@ -159,6 +162,7 @@ header.scrolled {
 .hamburger {
     display: none;
     cursor: pointer;
+    margin-left: 1.5rem;
 }
 
 .hamburger span {
@@ -171,7 +175,7 @@ header.scrolled {
 }
 
 /* Hide mobile auth links on desktop */
-.mobile-auth-links {
+.nav-menu .mobile-auth-links {
     display: none;
 }
 
@@ -295,12 +299,12 @@ header.scrolled {
 
 /* --- Sections --- */
 section {
-    padding: 8rem 0;
+    padding: 6rem 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3.5rem;
 }
 
 .section-header span {
@@ -338,6 +342,19 @@ section {
 .card:hover {
     transform: translateY(-15px);
     box-shadow: var(--shadow);
+}
+
+.dark-theme .card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.dark-theme .card h3 {
+    color: var(--accent);
+}
+
+.dark-theme .card p {
+    color: #bbb;
 }
 
 .card-img {
@@ -423,20 +440,24 @@ section {
     margin-bottom: 2.5rem;
 }
 
-/* --- CTA Box --- */
 .cta-box-section {
-    padding: 4rem 0;
+    padding: 2.5rem 0 0;
+    /* Reduced top, removed bottom padding */
 }
 
 .cta-box {
     background: var(--primary);
     border-radius: 30px;
-    padding: 6rem 4rem;
+    padding: 4rem 3rem;
     color: var(--text-light);
     text-align: center;
     position: relative;
     overflow: hidden;
     border: 1px solid var(--glass-border);
+}
+
+.dark-theme .cta-box {
+    background: var(--primary-light);
 }
 
 .cta-box::before {
@@ -468,14 +489,39 @@ section {
 }
 
 /* --- Tutorials --- */
-.tutorial-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
 .tutorial-card .card-img {
     height: 180px;
+}
+
+.dark-theme #beginner-guides,
+.dark-theme #our-workshop,
+.dark-theme #our-team,
+.dark-theme #our-community,
+.dark-theme #location,
+.dark-theme #materials-section,
+.dark-theme #contact-intro,
+.dark-theme #location-section {
+    background-color: var(--bg-dark) !important;
+}
+
+.dark-theme .contact-info-item h4 {
+    color: var(--accent) !important;
+}
+
+.dark-theme .contact-info-item p {
+    color: var(--text-light) !important;
+}
+
+.dark-theme .contact-info-item i {
+    color: var(--accent) !important;
+}
+
+.dark-theme .section-header h2 {
+    color: var(--text-light) !important;
+}
+
+.dark-theme .section-header span {
+    color: var(--accent) !important;
 }
 
 /* --- About Section --- */
@@ -542,6 +588,11 @@ section {
     box-shadow: var(--shadow);
 }
 
+.dark-theme .contact-container {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+}
+
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -596,6 +647,17 @@ section {
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1);
+}
+
+.dark-theme .form-group label {
+    color: var(--text-light);
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--glass-border);
+    color: var(--text-light);
 }
 
 /* --- Footer --- */
@@ -750,20 +812,6 @@ footer {
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .about-section {
-        flex-direction: column;
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
     .nav-menu {
         position: fixed;
         top: 0;
@@ -771,7 +819,7 @@ footer {
         width: 100%;
         max-width: 320px;
         height: 100vh;
-        background: var(--primary);
+        background: var(--header-bg);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -779,6 +827,11 @@ footer {
         transition: 0.5s;
         overflow-y: auto;
         z-index: 999;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-theme .nav-menu {
+        background: var(--bg-dark);
     }
 
     .nav-menu.active {
@@ -792,7 +845,7 @@ footer {
     }
 
     .nav-link {
-        color: var(--text-light) !important;
+        color: var(--text-color) !important;
         font-size: 1.1rem;
         display: block;
         padding: 0.8rem 1rem;
@@ -802,6 +855,47 @@ footer {
         display: block;
         z-index: 1001;
     }
+
+    .auth-nav {
+        display: none;
+    }
+
+    .nav-menu .mobile-auth-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--glass-border);
+        width: 100%;
+    }
+
+    .nav-menu .mobile-auth-links a {
+        display: block;
+        padding: 1rem;
+        border-radius: 12px;
+        font-weight: 600;
+        text-align: center;
+        transition: var(--transition);
+    }
+
+    .nav-menu .mobile-auth-links .btn-nav-login {
+        border: 1px solid var(--accent);
+        color: var(--accent);
+    }
+
+    .nav-menu .mobile-auth-links .btn-nav-signup {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
 
     .hero-content h1 {
         font-size: 3.5rem;
@@ -837,51 +931,7 @@ footer {
         height: 180px;
     }
 
-    /* Hide auth-nav on mobile - buttons will be in hamburger menu */
-    .auth-nav {
-        display: none;
-    }
 
-    /* Style auth links inside mobile menu */
-    .nav-menu .mobile-auth-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        width: 100%;
-    }
-
-    .nav-menu .mobile-auth-links a {
-        color: var(--text-light);
-        font-weight: 600;
-        font-size: 1rem;
-        text-align: center;
-        padding: 0.9rem 1.5rem;
-        border-radius: 8px;
-        transition: var(--transition);
-        display: block;
-    }
-
-    .nav-menu .mobile-auth-links .btn-nav-login {
-        background: transparent;
-        border: 2px solid var(--accent);
-        color: var(--accent);
-    }
-
-    .nav-menu .mobile-auth-links .btn-nav-signup {
-        background: var(--accent);
-        color: var(--primary);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 700;
-    }
-
-    .nav-menu .mobile-auth-links a:hover {
-        opacity: 0.9;
-        transform: translateY(-2px);
-    }
 
     /* Prevent horizontal scroll on mobile */
     body {
@@ -958,6 +1008,11 @@ footer {
     animation: fadeInUp 0.8s ease;
 }
 
+.dark-theme .auth-container {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+}
+
 .auth-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -969,8 +1024,16 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+.dark-theme .auth-header h2 {
+    color: var(--accent);
+}
+
 .auth-header p {
     color: #666;
+}
+
+.dark-theme .auth-header p {
+    color: #bbb;
 }
 
 .password-input-wrapper {
@@ -1025,8 +1088,12 @@ footer {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: #999;
+}
+
+.dark-theme .social-divider {
+    color: #666;
 }
 
 .social-divider::before,
@@ -1035,6 +1102,11 @@ footer {
     height: 1px;
     background: #eee;
     flex: 1;
+}
+
+.dark-theme .social-divider::before,
+.dark-theme .social-divider::after {
+    background: var(--glass-border);
 }
 
 .social-btns {
@@ -1047,19 +1119,31 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
-    padding: 0.8rem;
+    gap: 1rem;
+    padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 12px;
+    border-radius: 16px;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     background: #fff;
     cursor: pointer;
     transition: var(--transition);
 }
 
+.dark-theme .social-btn {
+    background: var(--card-bg);
+    border-color: var(--glass-border);
+    color: var(--text-light);
+}
+
 .social-btn:hover {
     background: #f8f8f8;
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.dark-theme .social-btn:hover {
+    background: var(--glass);
     border-color: var(--accent);
 }
 
@@ -1138,6 +1222,66 @@ footer {
     background: var(--text-light);
     color: var(--primary);
     transform: translateY(-2px);
+}
+
+.dark-theme .auth-options label {
+    color: #bbb !important;
+}
+
+.dark-theme .auth-header p,
+.dark-theme .auth-footer,
+.dark-theme .auth-footer p {
+    color: #bbb !important;
+}
+
+.dark-theme .auth-header h2 {
+    color: var(--accent) !important;
+}
+
+/* Background overrides for sections with inline bg-alt color */
+.dark-theme .bg-alt {
+    background-color: #140e0c !important;
+}
+
+.dark-theme .product-card h3 {
+    color: var(--accent) !important;
+}
+
+.dark-theme .product-price {
+    color: var(--gold) !important;
+}
+
+/* Fix for buttons that might have hardcoded dark text */
+.dark-theme .btn-primary {
+    color: var(--primary) !important;
+    background: var(--accent) !important;
+}
+
+.dark-theme .btn-secondary {
+    color: var(--text-light) !important;
+    border-color: var(--text-light) !important;
+}
+
+.dark-theme .btn-secondary:hover {
+    background: var(--text-light) !important;
+    color: var(--primary) !important;
+}
+
+/* Ensure all p and span with hardcoded #666 or #999 are visible */
+.dark-theme p[style*="color: #666"],
+.dark-theme p[style*="color: #999"],
+.dark-theme div[style*="color: #666"],
+.dark-theme span[style*="color: #999"],
+.dark-theme label[style*="color: #555"] {
+    color: #bbb !important;
+}
+
+.dark-theme p[style*="color: #ccc"] {
+    color: #eee !important;
+}
+
+.dark-theme i[style*="color: #000"] {
+    color: var(--text-light) !important;
 }
 
 /* Responsive auth */
