@@ -965,6 +965,14 @@ footer {
         overflow-x: hidden;
     }
 
+    /* Join CTA Section & Footer Padding for Tablets */
+    .cta-box-section,
+    .cta-section,
+    footer {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
     .dark-theme .nav-menu {
         background: var(--bg-dark);
     }

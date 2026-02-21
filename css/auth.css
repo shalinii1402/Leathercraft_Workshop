@@ -1,0 +1,315 @@
+:root {
+    --auth-card-bg: var(--card-bg);
+    --auth-input-bg: rgba(0, 0, 0, 0.02);
+    --auth-input-border: rgba(0, 0, 0, 0.08);
+    --auth-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme {
+    --auth-input-bg: rgba(255, 255, 255, 0.05);
+    --auth-input-border: rgba(255, 255, 255, 0.1);
+    --auth-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-body {
+    background-color: var(--bg-color);
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 440px;
+    perspective: 1000px;
+}
+
+.auth-card {
+    background: var(--auth-card-bg);
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: var(--auth-shadow);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: authFadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes authFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.auth-logo:hover {
+    transform: scale(1.05);
+}
+
+.auth-logo i {
+    font-size: 1.5rem;
+}
+
+.auth-header {
+    margin-bottom: 2.5rem;
+}
+
+.auth-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.auth-header p {
+    color: var(--text-color);
+    opacity: 0.6;
+    font-size: 0.95rem;
+}
+
+.auth-form {
+    text-align: left;
+}
+
+.auth-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.auth-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.auth-input-wrapper {
+    position: relative;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid var(--auth-input-border);
+    background: var(--auth-input-bg);
+    color: var(--text-color);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--auth-card-bg);
+    box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1);
+}
+
+.auth-input-icon {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.auth-input-icon:hover {
+    opacity: 0.6;
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+}
+
+.auth-remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.auth-remember:hover {
+    opacity: 1;
+}
+
+.auth-remember input {
+    accent-color: var(--accent);
+}
+
+.auth-forgot {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+}
+
+.auth-forgot::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.auth-forgot:hover::after {
+    width: 100%;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.5);
+    background: #c29262;
+}
+
+/* Restore Original Social Login Styles */
+.social-login {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-divider {
+    display: flex;
+    align-items: center;
+    color: #999;
+    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.social-divider span:first-child,
+.social-divider span:last-child {
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.social-divider span:nth-child(2) {
+    padding: 0 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.7rem;
+}
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    background: #fff;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode overrides for original social icons */
+.dark-theme .social-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .social-divider span:first-child,
+.dark-theme .social-divider span:last-child {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme .social-divider {
+    color: #888;
+}
+
+.auth-footer {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.auth-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-header h2 {
+        font-size: 1.8rem;
+    }
+}
