@@ -19,25 +19,28 @@
     --auth-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-/* ─── Body: locked to the viewport, never scrolls ───── */
-html,
-.auth-body {
-    height: 100% !important;
-    overflow: hidden !important;
+/* ─── Reset html so the flex container is exactly the viewport ── */
+html:has(body.auth-body) {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
+/* ─── Body: perfect dead-centre, no scroll ───────────────────── */
 .auth-body {
     background-color: var(--bg-color) !important;
     margin: 0 !important;
     padding: 0 !important;
     font-family: 'Outfit', sans-serif !important;
-    /* Full-viewport flex centring */
+    /* single-axis row flex centres the wrapper both ways */
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 100% !important;
+    /* fill exactly the viewport – no more, no less */
+    width: 100vw !important;
     height: 100vh !important;
+    min-height: 100vh !important;
     box-sizing: border-box !important;
     text-align: left !important;
     overflow: hidden !important;
@@ -47,9 +50,9 @@ html,
 .auth-wrapper {
     width: 560px !important;
     max-width: calc(100vw - 2rem) !important;
-    /* never wider than viewport */
+    /* flex child: prevent it from stretching to full height */
+    flex-shrink: 0;
     perspective: 1000px;
-    /* no height set – card defines height */
 }
 
 /* ─── Card: fits the content, scrolls internally if needed */
@@ -397,18 +400,21 @@ body.dark-theme .auth-input::placeholder {
 /* Mobile ≤ 480 px: fill width, allow scrolling on very small phones */
 @media (max-width: 480px) {
 
-    html,
-    .auth-body {
-        overflow: auto !important;
-        /* small phones may need to scroll */
-        height: auto !important;
+    /* Release the html scroll-lock on small phones */
+    html:has(body.auth-body) {
+        overflow: auto;
+        height: auto;
     }
 
     .auth-body {
-        min-height: 100vh !important;
+        /* Allow native scroll; vertical padding creates even breathing room */
+        overflow: auto !important;
         height: auto !important;
-        justify-content: flex-start !important;
-        padding: 1.25rem 0.75rem !important;
+        min-height: 100vh !important;
+        padding: 2rem 0.75rem !important;
+        /* Keep flex centering — it works as long as min-height ≥ content */
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .auth-wrapper {
