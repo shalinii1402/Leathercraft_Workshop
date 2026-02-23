@@ -8,17 +8,12 @@
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=5">
     <link rel="shortcut icon" href="assets/images/favicon.svg?v=5">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/auth.css?v=5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="auth-body">
 
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle"
-        style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--glass); border: 1px solid var(--glass-border); font-size: 1.2rem; color: var(--accent); cursor: pointer; z-index: 1000; transition: var(--transition); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-        <i class="fas fa-moon"></i>
-    </button>
 
     <div class="auth-wrapper">
         <div class="auth-card">
@@ -29,28 +24,28 @@
             </a>
 
             <!-- Header -->
-            <div class="auth-header" style="margin-bottom: 2rem;">
+            <div class="auth-header">
                 <h2>Get Started</h2>
                 <p>Join our community of master crafters</p>
             </div>
 
             <!-- Form -->
             <form class="auth-form">
-                <div class="auth-group" style="margin-bottom: 1.2rem;">
+                <div class="auth-group">
                     <label for="name">Full Name</label>
                     <div class="auth-input-wrapper">
                         <input type="text" id="name" class="auth-input" placeholder="John Doe" required>
                     </div>
                 </div>
 
-                <div class="auth-group" style="margin-bottom: 1.2rem;">
+                <div class="auth-group">
                     <label for="email">Email Address</label>
                     <div class="auth-input-wrapper">
                         <input type="email" id="email" class="auth-input" placeholder="name@company.com" required>
                     </div>
                 </div>
 
-                <div class="auth-group" style="margin-bottom: 1.5rem;">
+                <div class="auth-group">
                     <label for="password">Password</label>
                     <div class="auth-input-wrapper">
                         <input type="password" id="password" class="auth-input" placeholder="••••••••" required>
@@ -58,7 +53,7 @@
                     </div>
                 </div>
 
-                <div class="auth-options" style="margin-bottom: 1.5rem;">
+                <div class="auth-options">
                     <label class="auth-remember">
                         <input type="checkbox" required> I agree to the <a href="#"
                             style="color: var(--accent); font-weight: 600;">Terms & Conditions</a>

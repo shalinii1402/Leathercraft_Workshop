@@ -1,3 +1,11 @@
+/* ═══════════════════════════════════════════════════════
+   AUTH.CSS  –  Login & Sign-Up pages
+   Strategy: body is locked to exactly 100vh (no scroll).
+   The card uses clamp() spacing so it always fits inside
+   the viewport on desktop, tablet, and mobile.
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── CSS Variables ──────────────────────────────────── */
 :root {
     --auth-card-bg: var(--card-bg);
     --auth-input-bg: rgba(0, 0, 0, 0.02);
@@ -11,38 +19,69 @@
     --auth-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
+/* ─── Body: locked to the viewport, never scrolls ───── */
+html,
 .auth-body {
-    background-color: var(--bg-color);
-    margin: 0;
-    font-family: 'Outfit', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
+    height: 100% !important;
+    overflow: hidden !important;
 }
 
+.auth-body {
+    background-color: var(--bg-color) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Outfit', sans-serif !important;
+    /* Full-viewport flex centring */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100vh !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    overflow: hidden !important;
+}
+
+/* ─── Wrapper ────────────────────────────────────────── */
 .auth-wrapper {
-    width: 100%;
-    max-width: 440px;
+    width: 560px !important;
+    max-width: calc(100vw - 2rem) !important;
+    /* never wider than viewport */
     perspective: 1000px;
+    /* no height set – card defines height */
 }
 
+/* ─── Card: fits the content, scrolls internally if needed */
 .auth-card {
+    width: 100%;
+    max-height: calc(100vh - 2rem);
+    /* card cannot be taller than the viewport */
+    overflow-y: auto;
+    /* card content scrolls, NOT the page */
     background: var(--auth-card-bg);
-    padding: 3rem 2.5rem;
-    border-radius: 24px;
+    /* Responsive vertical padding via clamp */
+    padding: clamp(1.25rem, 3vh, 2rem) clamp(1.5rem, 4vw, 2.75rem);
+    border-radius: 20px;
     box-shadow: var(--auth-shadow);
     border: 1px solid var(--glass-border);
     text-align: center;
     backdrop-filter: blur(10px);
-    animation: authFadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-sizing: border-box;
+    animation: authFadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    scrollbar-width: none;
+    /* hide scrollbar – Firefox */
+}
+
+.auth-card::-webkit-scrollbar {
+    display: none;
+    /* hide scrollbar – Chrome/Safari */
 }
 
 @keyframes authFadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(16px);
     }
 
     to {
@@ -51,60 +90,64 @@
     }
 }
 
+/* ─── Logo ───────────────────────────────────────────── */
 .auth-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 2rem;
+    gap: 10px;
+    /* Responsive bottom margin */
+    margin-bottom: clamp(0.6rem, 1.5vh, 1.1rem);
     color: var(--accent);
     text-decoration: none;
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
     font-weight: 700;
     transition: var(--transition);
 }
 
 .auth-logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .auth-logo i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
+/* ─── Header ─────────────────────────────────────────── */
 .auth-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: clamp(0.6rem, 1.5vh, 1.25rem);
 }
 
 .auth-header h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
     font-weight: 700;
     color: var(--text-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     font-family: 'Outfit', sans-serif;
 }
 
 .auth-header p {
     color: var(--text-color);
     opacity: 0.6;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
+/* ─── Form ───────────────────────────────────────────── */
 .auth-form {
     text-align: left;
 }
 
 .auth-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(0.6rem, 1.2vh, 1rem);
     position: relative;
 }
 
 .auth-group label {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.35rem;
     color: var(--text-color);
     opacity: 0.8;
 }
@@ -115,26 +158,28 @@
 
 .auth-input {
     width: 100%;
-    padding: 1rem 1.2rem;
-    border-radius: 12px;
+    /* Responsive input height via padding */
+    padding: clamp(0.55rem, 1.2vh, 0.8rem) 1.1rem;
+    border-radius: 10px;
     border: 1px solid var(--auth-input-border);
     background: var(--auth-input-bg);
     color: var(--text-color);
     font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .auth-input:focus {
     outline: none;
     border-color: var(--accent);
     background: var(--auth-card-bg);
-    box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.12);
 }
 
 .auth-input-icon {
     position: absolute;
-    right: 1.2rem;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-color);
@@ -147,18 +192,19 @@
     opacity: 0.6;
 }
 
+/* ─── Options Row (Remember / Forgot) ───────────────── */
 .auth-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    font-size: 0.85rem;
+    margin-bottom: clamp(0.6rem, 1.2vh, 1rem);
+    font-size: 0.82rem;
 }
 
 .auth-remember {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     cursor: pointer;
     color: var(--text-color);
     opacity: 0.8;
@@ -196,38 +242,39 @@
     width: 100%;
 }
 
+/* ─── Submit Button ──────────────────────────────────── */
 .auth-btn {
     width: 100%;
-    padding: 1rem;
-    border-radius: 12px;
+    padding: clamp(0.6rem, 1.2vh, 0.85rem);
+    border-radius: 10px;
     border: none;
     background: var(--accent);
     color: white;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+    box-shadow: 0 4px 14px rgba(212, 163, 115, 0.3);
 }
 
 .auth-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.5);
+    box-shadow: 0 7px 22px rgba(212, 163, 115, 0.45);
     background: #c29262;
 }
 
-/* Restore Original Social Login Styles */
+/* ─── Social Login ───────────────────────────────────── */
 .social-login {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-top: clamp(0.6rem, 1.2vh, 1.1rem);
+    margin-bottom: clamp(0.4rem, 0.8vh, 0.8rem);
 }
 
 .social-divider {
     display: flex;
     align-items: center;
     color: #999;
-    font-size: 0.8rem;
-    margin-bottom: 1.2rem;
+    font-size: 0.75rem;
+    margin-bottom: clamp(0.5rem, 1vh, 0.9rem);
 }
 
 .social-divider span:first-child,
@@ -242,18 +289,18 @@
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
 }
 
 .social-container {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .social-btn {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -261,7 +308,7 @@
     border: 1px solid #eee;
     background: #fff;
     transition: all 0.2s;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
 }
@@ -272,7 +319,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Dark mode overrides for original social icons */
+/* ─── Dark mode – social ─────────────────────────────── */
 .dark-theme .social-btn {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);
@@ -287,10 +334,12 @@
     color: #888;
 }
 
+/* ─── Footer link ────────────────────────────────────── */
 .auth-footer {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-color);
     opacity: 0.8;
+    margin-top: clamp(0.3rem, 0.6vh, 0.6rem);
 }
 
 .auth-footer a {
@@ -303,13 +352,96 @@
     text-decoration: underline;
 }
 
-/* Responsive adjustments */
+/* ─── Dark mode – explicit overrides for auth pages ────
+   body.dark-theme is set by main.js from localStorage.
+   Because .auth-body uses !important on background-color,
+   we need a stronger selector to win in dark mode.       */
+body.dark-theme.auth-body {
+    background-color: var(--bg-dark) !important;
+}
+
+body.dark-theme .auth-card {
+    background: var(--card-bg) !important;
+    border-color: var(--glass-border) !important;
+}
+
+body.dark-theme .auth-header h2,
+body.dark-theme .auth-header p,
+body.dark-theme .auth-group label,
+body.dark-theme .auth-remember,
+body.dark-theme .auth-footer {
+    color: var(--text-light) !important;
+}
+
+body.dark-theme .auth-input {
+    background: var(--auth-input-bg) !important;
+    border-color: var(--auth-input-border) !important;
+    color: var(--text-light) !important;
+}
+
+body.dark-theme .auth-input::placeholder {
+    color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════ */
+
+/* Tablet  769 px – 1024 px: slightly narrower, same height */
+@media (max-width: 1024px) and (min-width: 481px) {
+    .auth-wrapper {
+        width: min(500px, calc(100vw - 2rem)) !important;
+    }
+}
+
+/* Mobile ≤ 480 px: fill width, allow scrolling on very small phones */
 @media (max-width: 480px) {
+
+    html,
+    .auth-body {
+        overflow: auto !important;
+        /* small phones may need to scroll */
+        height: auto !important;
+    }
+
+    .auth-body {
+        min-height: 100vh !important;
+        height: auto !important;
+        justify-content: flex-start !important;
+        padding: 1.25rem 0.75rem !important;
+    }
+
+    .auth-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
     .auth-card {
-        padding: 2rem 1.5rem;
+        max-height: none !important;
+        /* let it grow naturally on mobile */
+        overflow-y: visible !important;
+        padding: 1.5rem 1.1rem !important;
+        border-radius: 16px;
+    }
+
+    .auth-logo {
+        font-size: 1.35rem;
     }
 
     .auth-header h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Very small ≤ 360 px */
+@media (max-width: 360px) {
+    .auth-card {
+        padding: 1.25rem 0.9rem !important;
+    }
+
+    .auth-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
     }
 }
