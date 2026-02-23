@@ -52,7 +52,6 @@ html:has(body.auth-body) {
     max-width: calc(100vw - 2rem) !important;
     /* flex child: prevent it from stretching to full height */
     flex-shrink: 0;
-    perspective: 1000px;
 }
 
 /* ─── Card: fits the content, scrolls internally if needed */
@@ -69,7 +68,6 @@ html:has(body.auth-body) {
     box-shadow: var(--auth-shadow);
     border: 1px solid var(--glass-border);
     text-align: center;
-    backdrop-filter: blur(10px);
     box-sizing: border-box;
     animation: authFadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     scrollbar-width: none;

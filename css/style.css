@@ -102,7 +102,6 @@ header {
     width: 100%;
     z-index: 1000;
     background: var(--header-bg);
-    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
     padding: 1rem 0;
     transition: var(--transition);
